@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "David Lucas",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -70.2, "left": 214, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": -129.56, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -198.4,
+      "left": -47.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -61.2,
+      "left": 512.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 33.6,
+      "left": 508.25,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 203.2,
+      "left": 369,
+      "rotate": 180,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 168,
+      "left": 354.65,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "ldr1:GND", "bb1:tn.2", "black", [ "h0" ] ],
+    [ "ldr1:VCC", "bb1:tp.6", "red", [ "h0" ] ],
+    [ "esp:5V", "bb1:tp.4", "red", [ "h-19.05", "v-230.4", "h382.4" ] ],
+    [ "ldr1:AO", "bb1:1t.a", "green", [ "v133.7", "h57.6" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ],
+    [ "led1:C", "bb1:30t.b", "green", [ "v9.6", "h-66.8" ] ],
+    [ "bb1:30t.a", "bb1:tn.25", "green", [ "v-28.8" ] ],
+    [ "esp:4", "bb1:1t.b", "green", [ "h76.8", "v-76.8" ] ],
+    [ "r1:2", "bb1:2t.e", "green", [ "h-28.8", "v-39.6", "h-316.8" ] ],
+    [ "bb1:2t.d", "esp:2", "green", [ "v19.2", "h-134.4", "v57.6" ] ],
+    [ "led3:A", "r2:2", "green", [ "v0" ] ],
+    [ "r2:1", "bb1:5b.j", "green", [ "h-172.8" ] ],
+    [ "bb1:5b.i", "esp:15", "green", [ "v0" ] ],
+    [ "led3:C", "bb1:tn.20", "green", [ "v-28.8", "h191.6", "v-297.6", "h-115.2", "v67.2" ] ]
+  ],
+  "dependencies": {}
+}
